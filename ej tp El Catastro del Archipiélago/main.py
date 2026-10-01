@@ -25,9 +25,8 @@ def procesarMatriz(m):
             if(m[i][j] == "1" and not (j,i) in conjuntosVisitados):
                 arrayIslas.append(contabilizarAdyacencias(j,i,conjuntosVisitados,m))
 
-
+    arrayIslas.sort(reverse=True)
     return arrayIslas
-
 
 
 def contabilizarAdyacencias(x,y,conjuntosVisitados,m):
@@ -44,23 +43,19 @@ def contabilizarAdyacencias(x,y,conjuntosVisitados,m):
 
         if(not coordenadaSaleDeMatriz(cordX,cordY-1,m) and m[cordY-1][cordX] == "1" and not (cordX,cordY-1) in conjuntosVisitados and not (cordX,cordY-1) in pilaProxElem):
             pilaProxElem.append((cordX,cordY-1))
-            #conjuntosVisitados.add((cordX,cordY-1))
-            #contAdyacencias+=1
+            
 
         if(not coordenadaSaleDeMatriz(cordX-1,cordY,m) and m[cordY][cordX-1] == "1" and not (cordX-1,cordY) in conjuntosVisitados and not (cordX-1,cordY) in pilaProxElem):
             pilaProxElem.append((cordX-1,cordY))
-            #conjuntosVisitados.add((cordX-1,cordY))
-            #contAdyacencias+=1
+            
 
         if(not coordenadaSaleDeMatriz(cordX,cordY+1,m) and m[cordY+1][cordX] == "1" and not (cordX,cordY+1) in conjuntosVisitados and not (cordX,cordY+1) in pilaProxElem):
             pilaProxElem.append((cordX,cordY+1))
-            #conjuntosVisitados.add((cordX,cordY+1))
-            #contAdyacencias+=1
+            
 
         if(not coordenadaSaleDeMatriz(cordX+1,cordY,m) and m[cordY][cordX+1] == "1" and not (cordX+1,cordY) in conjuntosVisitados and not (cordX+1,cordY) in pilaProxElem):
             pilaProxElem.append((cordX+1,cordY))
-            #conjuntosVisitados.add((cordX+1,cordY))
-            #contAdyacencias+=1
+            
 
 
     return contAdyacencias
